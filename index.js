@@ -14,15 +14,17 @@ const run = async () => {
   const pulls = await octokit.pulls.list({...context.repo, state: "open"});
 
   for (i = 0; i < pulls.data.length; i++) {
-    /*if (body.length > 0) {
-      core.info("Creating a comment");
+    number = pulls.data[i].number
+
+    if (comment.length > 0) {
+      core.info(`Commenting on PR ${number}`);
       await client.issues.createComment({
         ...context.repo,
-        issue_number: context.issue.number,
-        body
+        issue_number: number,
+        comment
       });
-    }*/
-    number = pulls.data[i].number
+    }
+
     core.info(`Closing PR ${number}`);
     await octokit.pulls.update({...context.repo, pull_number: number, state: "closed"});
   }
