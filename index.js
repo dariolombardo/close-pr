@@ -22,7 +22,6 @@ const run = async () => {
   console.log(`222222222222222222222222222222222222222222`);
 
   for (pull in data) {
-    const payload = ;
     console.log(JSON.stringify(pull, undefined, 2));
   }
 
