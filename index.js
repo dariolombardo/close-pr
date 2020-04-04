@@ -12,10 +12,10 @@ try {
   
   const octokit = new github.GitHub(token);
 
-  console.log(octokit.pulls.list({
-    ...context.repo,
-    state: "open"
-  }));
+  for pull in octokit.pulls.list({...context.repo, state: "open"}) {
+    const payload = JSON.stringify(pull, undefined, 2)
+    console.log(payload)
+  }
 
   console.log(`comment: ${comment}!`);
 } catch (error) {
