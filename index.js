@@ -12,7 +12,7 @@ try {
   
   const octokit = new github.GitHub(token);
 
-  const pulls = octokit.pulls.list({...context.repo, state: "open"});
+  const pulls = await octokit.pulls.list({...context.repo, state: "open"});
 
   console.log(`pulls number: ${pulls.length}`);
 
@@ -21,7 +21,7 @@ try {
     console.log(payload);
   }
 
-  console.log(`comment: ${comment}!`);
+  //console.log(`comment: ${comment}!`);
 } catch (error) {
   core.setFailed(error.message);
 }
