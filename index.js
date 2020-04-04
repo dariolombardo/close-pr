@@ -14,7 +14,7 @@ try {
 
   const pulls = await octokit.pulls.list({...context.repo, state: "open"});
 
-  console.log(`pulls number: ${pulls.length}`);
+  console.log(`pulls number: ${pulls.data.length}`);
 
   for (pull in pulls) {
     const payload = JSON.stringify(pull, undefined, 2);
