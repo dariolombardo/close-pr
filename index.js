@@ -12,11 +12,11 @@ const run = async () => {
   
   const octokit = new github.GitHub(token);
 
-  const pulls = await octokit.pulls.list({...context.repo, state: "open"}).data;
+  const pulls = await octokit.pulls.list({...context.repo, state: "open"});
 
-  console.log(`pulls number: ${pulls.length}`);
+  console.log(`pulls number: ${pulls.data.length}`);
 
-  for (pull in pulls) {
+  for (pull in pulls.data) {
     const payload = JSON.stringify(pull, undefined, 2);
     console.log(payload);
   }
