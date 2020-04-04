@@ -26,9 +26,9 @@ const run = async () => {
         body
       });
     }*/
-
-    console.log(JSON.stringify(pulls.data[i].id, undefined, 2));
-    console.log(`11111111111111111111111111111111111111`);
+    id = pulls.data[i].id
+    core.info("Closing PR ${id}");
+    await client.pulls.update({...context.repo, pull_number: id, state: "closed"});
   }
 }
 
