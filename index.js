@@ -24,7 +24,7 @@ const run = async () => {
       await octokit.issues.createComment({
         ...context.repo,
         issue_number: number,
-        comment
+        body: comment
       });
     }
 
