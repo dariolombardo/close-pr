@@ -13,16 +13,17 @@ const run = async () => {
   const octokit = new github.GitHub(token);
 
   const pulls = await octokit.pulls.list({...context.repo, state: "open"});
+  const data = pulls.data;
 
-  console.log(`pulls number: ${pulls.data.length}`);
+  console.log(`pulls number: ${data.length}`);
 
   console.log(`11111111111111111111111111111111111111`);
-  console.log(`${JSON.stringify(pulls.data, undefined, 2)}`);
+  console.log(JSON.stringify(data, undefined, 2));
   console.log(`222222222222222222222222222222222222222222`);
-  
-  for (pull in pulls.data) {
-    const payload = JSON.stringify(pull, undefined, 2);
-    console.log(payload);
+
+  for (pull in data) {
+    const payload = ;
+    console.log(JSON.stringify(pull, undefined, 2));
   }
 
   //console.log(`comment: ${comment}!`);
