@@ -11,12 +11,12 @@ const run = async () => {
   }
   
   const octokit = new github.GitHub(token);
-  const pulls = await octokit.pulls.list({...context.repo, state: "open"}).data;
+  const pulls = await octokit.pulls.list({...context.repo, state: "open"});
 
-  console.log(`pulls number: ${pulls.length}`);
+  console.log(`pulls number: ${pulls.data.length}`);
 
-  for (i = 0; i < pulls.length; i++) {
-    console.log(JSON.stringify(pulls[i], undefined, 2));
+  for (i = 0; i < pulls.data.length; i++) {
+    console.log(JSON.stringify(pulls.data[i], undefined, 2));
     console.log(`11111111111111111111111111111111111111`);
   }
 
