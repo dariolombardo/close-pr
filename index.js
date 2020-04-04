@@ -13,8 +13,8 @@ try {
   const octokit = new github.GitHub(token);
 
   for (pull in octokit.pulls.list({...context.repo, state: "open"})) {
-    const payload = JSON.stringify(pull, undefined, 2)
-    console.log(payload)
+    const payload = JSON.stringify(pull, undefined, 2);
+    console.log(payload);
   }
 
   console.log(`comment: ${comment}!`);
