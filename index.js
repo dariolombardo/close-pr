@@ -15,12 +15,22 @@ const run = async () => {
 
   console.log(`pulls number: ${pulls.data.length}`);
 
+  console.log(`CONTEXT >>${JSON.stringify(context, undefined, 2)}<<<<`);
+  
   for (i = 0; i < pulls.data.length; i++) {
-    console.log(JSON.stringify(pulls.data[i], undefined, 2));
+    /*if (body.length > 0) {
+      core.info("Creating a comment");
+      await client.issues.createComment({
+        ...context.repo,
+        issue_number: context.issue.number,
+        body
+      });
+    }*/
+
+    console.log(JSON.stringify(pulls.data[i].id, undefined, 2));
     console.log(`11111111111111111111111111111111111111`);
   }
-
-  //console.log(`comment: ${comment}!`);
+  */
 }
 
 run().catch(err => {
