@@ -10,6 +10,8 @@ jobs:
     name: Close any PR
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
     - uses: ./
       with:
         # Optional. Post a issue comment just before closing a pull request.
