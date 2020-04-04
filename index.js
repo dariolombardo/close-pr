@@ -22,9 +22,9 @@ const run = async () => {
         body
       });
     }*/
-    id = pulls.data[i].id
-    core.info(`Closing PR ${id}`);
-    await octokit.pulls.update({...context.repo, pull_number: id, state: "closed"});
+    number = pulls.data[i].number
+    core.info(`Closing PR ${number}`);
+    await octokit.pulls.update({...context.repo, pull_number: number, state: "closed"});
   }
 }
 
