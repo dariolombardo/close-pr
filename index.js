@@ -30,7 +30,6 @@ const run = async () => {
     console.log(JSON.stringify(pulls.data[i].id, undefined, 2));
     console.log(`11111111111111111111111111111111111111`);
   }
-  */
 }
 
 run().catch(err => {
