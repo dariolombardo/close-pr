@@ -16,6 +16,10 @@ const run = async () => {
 
   console.log(`pulls number: ${pulls.data.length}`);
 
+  console.log(`11111111111111111111111111111111111111`);
+  console.log(`${JSON.stringify(pulls.data, undefined, 2)}`);
+  console.log(`222222222222222222222222222222222222222222`);
+  
   for (pull in pulls.data) {
     const payload = JSON.stringify(pull, undefined, 2);
     console.log(payload);
