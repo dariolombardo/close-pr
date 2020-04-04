@@ -12,7 +12,7 @@ try {
   
   const octokit = new github.GitHub(token);
 
-  const pulls = await octokit.pulls.list({...context.repo, state: "open"});
+  const pulls = octokit.pulls.list({...context.repo, state: "open"});
 
   console.log(`pulls number: ${pulls.data.length}`);
 
