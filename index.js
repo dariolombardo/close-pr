@@ -20,7 +20,7 @@ const run = async () => {
   console.log(JSON.stringify(pulls.data, undefined, 2));
   console.log(`222222222222222222222222222222222222222222`);
 
-  for (i = 0; i < data.length; i++) {
+  for (i = 0; i < pulls.data.length; i++) {
     console.log(JSON.stringify(pulls.data[i], undefined, 2));
   }
 
