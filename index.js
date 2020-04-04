@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-  // `who-to-greet` input defined in action metadata file
+  const context = github.context;
   const comment = core.getInput('comment');
   const token = process.env["GITHUB_TOKEN"] || "";
   
