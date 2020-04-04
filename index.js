@@ -11,14 +11,17 @@ const run = async () => {
   }
   
   const octokit = new github.GitHub(token);
-  const pulls = await octokit.pulls.list({...context.repo, state: "open"});
+  const pulls = await octokit.pulls.list({
+    ...context.repo,
+    state: "open"
+  });
 
   for (i = 0; i < pulls.data.length; i++) {
     number = pulls.data[i].number
 
     if (comment.length > 0) {
       core.info(`Commenting on PR ${number}`);
-      await client.issues.createComment({
+      await octokit.issues.createComment({
         ...context.repo,
         issue_number: number,
         comment
@@ -26,7 +29,11 @@ const run = async () => {
     }
 
     core.info(`Closing PR ${number}`);
-    await octokit.pulls.update({...context.repo, pull_number: number, state: "closed"});
+    await octokit.pulls.update({
+      ...context.repo,
+      pull_number: number,
+      state: "closed"
+    });
   }
 }
 
